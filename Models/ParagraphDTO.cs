@@ -8,6 +8,7 @@ namespace WordStuff.Models
 {
     public class ParagraphDTO
     {
+        public int Order { get; set; }
         public string Style { get; set; }
         public string Content { get; set; }
         public string ListItemType { get; set; }

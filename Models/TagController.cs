@@ -11,6 +11,11 @@ namespace WordStuff.Models
     {
         public string ToHtml(List<ParagraphDTO> Paragraphs)
         {
+
+
+            var bulletedList = Paragraphs.Where(p => p.Style == "ListParagraph" && p.ListItemType == "Bulleted");
+            var numberedList = Paragraphs.Where(p => p.Style == "ListParagraph" && p.ListItemType == "Numbered");
+
             string returnHtml = "";
 
             foreach (ParagraphDTO paragraph in Paragraphs)
@@ -24,10 +29,10 @@ namespace WordStuff.Models
                 } else if (paragraph.Style == "Heading2")
                 {
                     returnHtml += "<h2 class='doc-section'>" + paragraph.Content + "</h2>";
-                } else if (paragraph.Style == "ListParagraph" && paragraph.ListItemType == "Bulleted")
-                {
-
-                }
+                } //else if (paragraph.Style == "ListParagraph" && paragraph.ListItemType == "Bulleted")
+                //{
+                    
+                //}
             }
 
 
