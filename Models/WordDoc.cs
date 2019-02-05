@@ -24,7 +24,10 @@ namespace WordStuff.Models
             Created = coreProperties["dcterms:created"];
             Title = document.Paragraphs.FirstOrDefault().Text;
 
-            int counter = 0;
+            htmlString += "<p><h1 class='doc-title'>" + Title + "</h1></p>";
+            htmlString += "<p><span class='doc-author'>" + Author + "</span></p>";
+            htmlString += "<p><span class='doc-created'>" + Created + "</span></p>";
+
             foreach (var paragraph in document.Paragraphs)
             {
                 if (Paragraphs == null)
@@ -32,11 +35,10 @@ namespace WordStuff.Models
                     Paragraphs = new List<ParagraphDTO>();
                 }
                 ParagraphDTO paragraphDTO = new ParagraphDTO(paragraph);
-                paragraphDTO.Order = counter;
-                counter++;
                 Paragraphs.Add(paragraphDTO);
             }
 
+            htmlString += tagController.ToHtml(Paragraphs);
 
         }
 

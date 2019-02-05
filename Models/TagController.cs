@@ -12,40 +12,75 @@ namespace WordStuff.Models
         public string ToHtml(List<ParagraphDTO> Paragraphs)
         {
 
-
-            var bulletedList = Paragraphs.Where(p => p.Style == "ListParagraph" && p.ListItemType == "Bulleted");
-            var numberedList = Paragraphs.Where(p => p.Style == "ListParagraph" && p.ListItemType == "Numbered");
-
             string returnHtml = "";
+            bool listIsOpen = false;
+            bool listIsOrdered = false;
 
             foreach (ParagraphDTO paragraph in Paragraphs)
             {
-                if (paragraph.Style == "Heading1")
+                if (listIsOpen == false)
                 {
-                    returnHtml += "<h1 class='doc-title'>" + paragraph.Content + "</h1>";
-                } else if (paragraph.Style == "Normal")
+                    if (paragraph.Style == "Heading1")
+                    {
+                        returnHtml += "";
+                    }
+                    else if (paragraph.Style == "Normal")
+                    {
+                        returnHtml += "<p class='doc-content'>" + paragraph.Content + "</p>";
+                    }
+                    else if (paragraph.Style == "Heading2")
+                    {
+                        returnHtml += "<h2 class='doc-section'>" + paragraph.Content + "</h2>";
+                    }
+                    else if (paragraph.Style == "ListParagraph" && paragraph.ListItemType == "Bulleted")
+                    {
+                        returnHtml += "<ul class='doc-ul'><li>" + paragraph.Content + "</li>";
+                        listIsOpen = true;
+                        listIsOrdered = false;
+                    }
+                    else if (paragraph.Style == "ListParagraph" && paragraph.ListItemType == "Numbered")
+                    {
+                        returnHtml += "<ol class='doc-ol'><li class='doc-li'>" + paragraph.Content + "</li>";
+                        listIsOpen = true;
+                        listIsOrdered = true;
+                    }
+                }
+                else
                 {
-                    returnHtml += "<p class='doc-content'>" + paragraph.Content + "</p>";
-                } else if (paragraph.Style == "Heading2")
-                {
-                    returnHtml += "<h2 class='doc-section'>" + paragraph.Content + "</h2>";
-                } //else if (paragraph.Style == "ListParagraph" && paragraph.ListItemType == "Bulleted")
-                //{
-                    
-                //}
+                    string listCloseTag = listIsOrdered ? "</ol>" : "</ul>";
+                    if (listIsOpen == true)
+                    {
+                        if (paragraph.Style == "Heading1")
+                        {
+                            returnHtml += listCloseTag;
+                            listIsOpen = false;
+                            returnHtml += "";
+                        }
+                        else if (paragraph.Style == "Normal")
+                        {
+                            returnHtml += listCloseTag;
+                            listIsOpen = false;
+                            returnHtml += "<p class='doc-content'>" + paragraph.Content + "</p>";
+                        }
+                        else if (paragraph.Style == "Heading2")
+                        {
+                            returnHtml += listCloseTag;
+                            listIsOpen = false;
+                            returnHtml += "<h2 class='doc-section'>" + paragraph.Content + "</h2>";
+                        }
+                        else if (paragraph.Style == "ListParagraph" && paragraph.ListItemType == "Bulleted")
+                        {
+                            returnHtml += "<li class='doc-li'>" + paragraph.Content + "</li>";
+                        }
+                        else if (paragraph.Style == "ListParagraph" && paragraph.ListItemType == "Numbered")
+                        {
+                            returnHtml += "<li class='doc-li'>" + paragraph.Content + "</li>";
+                        }
+                    }
+                }                
             }
-
-
-
-            
             return returnHtml;
-        }
-
-        public string HandleLists(List<ParagraphDTO> ListItems)
-        {
-            string listHtml = "";
-
-            return listHtml;
         }
     }
 }
+
