@@ -19,8 +19,7 @@ namespace WordStuff.Controllers
             string filenameLocation = root + filename;
             filenameLocation += ".docx";
             WordDoc WordDoc = new WordDoc(DocX.Load(filenameLocation));
-            return Ok(WordDoc);
+            return Ok(WordDoc.htmlString);
         }
     }
-    
 }

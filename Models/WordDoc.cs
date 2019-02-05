@@ -24,7 +24,7 @@ namespace WordStuff.Models
             Created = coreProperties["dcterms:created"];
             Title = document.Paragraphs.FirstOrDefault().Text;
 
-            htmlString += "<p><h1 class='doc-title'>" + Title + "</h1></p>";
+            htmlString += "<h1 class='doc-title'>" + Title + "</h1>";
             htmlString += "<p><span class='doc-author'>" + Author + "</span></p>";
             htmlString += "<p><span class='doc-created'>" + Created + "</span></p>";
 
