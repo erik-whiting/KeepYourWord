@@ -25,8 +25,8 @@ namespace WordStuff.Models
             Title = document.Paragraphs.FirstOrDefault().Text;
 
             htmlString += "<h1 class='doc-title'>" + Title + "</h1>";
-            htmlString += "<p><span class='doc-author'>" + Author + "</span></p>";
-            htmlString += "<p><span class='doc-created'>" + Created + "</span></p>";
+            htmlString += "<div class='doc-header'><span class='doc-author'>" + Author + "</span>";
+            htmlString += "<span class='doc-created'>" + Created + "</span></div>";
 
             foreach (var paragraph in document.Paragraphs)
             {

@@ -36,14 +36,14 @@ namespace WordStuff.Models
                 }
                 else if (paragraph.Style == "ListParagraph" && paragraph.ListItemType == "Bulleted")
                 {
-                    returnHtml += listIsOpen ? "" : "<ul>";
+                    returnHtml += listIsOpen ? "" : "<ul class='doc-ul'>";
                     returnHtml += "<li class='doc-li'>" + paragraph.Content + "</li>";
                     listIsOpen = true;
                     listIsOrdered = false;
                 }
                 else if (paragraph.Style == "ListParagraph" && paragraph.ListItemType == "Numbered")
                 {
-                    returnHtml += listIsOpen ? "" : "<ol>";
+                    returnHtml += listIsOpen ? "" : "<ol class='doc-ol'>";
                     returnHtml += "<li class='doc-li'>" + paragraph.Content + "</li>";
                     listIsOpen = true;
                     listIsOrdered = true;

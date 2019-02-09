@@ -12,12 +12,10 @@ namespace WordStuff.Controllers
     public class WordDocsController : ApiController
     {
 
-        public IHttpActionResult GetWordDoc(string filename)
+        public IHttpActionResult GetWordDocHtml(string filename)
         {
-            //filenameLocation = "C:\\Users\\eedee\\Documents\\mastersStuff\\Spring19\\SW Engr\\week2\\KeepYourWord_Requirements.docx";
             string root = "C:\\Users\\eedee\\Documents\\mastersStuff\\Spring19\\SW Engr\\week2\\";
-            string filenameLocation = root + filename;
-            filenameLocation += ".docx";
+            string filenameLocation = root + filename + ".docx";
             WordDoc WordDoc = new WordDoc(DocX.Load(filenameLocation));
             return Ok(WordDoc.htmlString);
         }

@@ -1,0 +1,47 @@
+﻿body {
+    background-color: #233237;
+}
+
+#content-div {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #a9a9a9;
+}
+
+.doc-header {
+    text-align: center;
+}
+
+.doc-title {
+    text-align: center;
+}
+
+.doc-author {
+    display: inline-block;
+    margin: 3px;
+    font-weight: bold;
+}
+
+.doc-created {
+    display: inline-block;
+    margin: 3px;
+}
+
+.doc-section {
+
+}
+
+.doc-content {
+
+}
+
+.doc-ul {
+
+}
+
+.doc-ol {
+
+}
+
+.doc-li {
+
+}
