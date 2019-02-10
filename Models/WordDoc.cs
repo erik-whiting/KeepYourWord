@@ -38,7 +38,7 @@ namespace WordStuff.Models
                 Paragraphs.Add(paragraphDTO);
             }
 
-            htmlString += tagController.ToHtml(Paragraphs);
+            htmlString += tagController.ContentToHtml(Paragraphs);
 
         }
 

@@ -9,14 +9,14 @@ using Xceed.Words.NET;
 
 namespace WordStuff.Controllers
 {
-    public class WordDocsController : ApiController
+    public class WordDocHeadersController : ApiController
     {
-        public IHttpActionResult GetWordDocHtml(string filename)
+        public IHttpActionResult GetDocHeader(string filename)
         {
             string root = "C:\\Users\\eedee\\Documents\\mastersStuff\\Spring19\\SW Engr\\kywroot\\";
             string filenameLocation = root + filename + ".docx";
-            WordDoc WordDoc = new WordDoc(DocX.Load(filenameLocation));
-            return Ok(WordDoc.htmlString);
+            WordDocHeader WordDocHeader = new WordDocHeader(DocX.Load(filenameLocation));
+            return Ok(WordDocHeader.headerHtml);
         }
     }
 }

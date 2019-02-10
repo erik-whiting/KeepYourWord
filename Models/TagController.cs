@@ -9,7 +9,7 @@ namespace WordStuff.Models
 {
     public class TagController : ApiController
     {
-        public string ToHtml(List<ParagraphDTO> Paragraphs)
+        public string ContentToHtml(List<ParagraphDTO> Paragraphs)
         {
             string returnHtml = "";
             bool listIsOpen = false;

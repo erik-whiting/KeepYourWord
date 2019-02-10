@@ -1,10 +1,12 @@
 ﻿body {
-    background-color: #233237;
+    background-color: #fff;
 }
 
 #content-div {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color: #a9a9a9;
+    color: #233237;
+    transition: margin-left .5s;
+    padding-left: 200px;
 }
 
 .doc-header {
@@ -27,21 +29,51 @@
 }
 
 .doc-section {
-
 }
 
 .doc-content {
-
 }
 
 .doc-ul {
-
 }
 
 .doc-ol {
-
 }
 
 .doc-li {
+}
 
+.sidenav {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #18121e;
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.5s;
+}
+
+    .sidenav a {
+        padding: 8px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #eac67a;
+        display: block;
+        transition: 0.3s;
+    }
+
+        .sidenav a:hover {
+            color: #18121e;
+            background-color: #984b43;
+        }
+
+.sidenav .nav-sub-dir {
+    padding: 8px 8px 8px 32px;
+    font-size: 20px;
+    color: #eac67a;
+    display: block;
+    transition: 0.3s;
 }
