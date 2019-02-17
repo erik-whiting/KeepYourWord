@@ -6,11 +6,16 @@ $.ajax({
     success: function (data) {
         var directories = data.directoryStructureDtos;
         directories.forEach(function (directory) {
-            htmlContent += '<a href="#">' + directory.FolderName + '</a>';
-            subDirectories = directory.SubDirectoryDtos;
-            subDirectories.forEach(function (subDirectory) {
-                htmlContent += '<a class="nav-sub-dir" href="#">' + subDirectory.FolderName + '</a>';
-            });
+            jsClickEvent = ' onClick="getHeaders(\'' + directory.FolderName + '\')" ';
+            htmlContent += '<a href="#"' + jsClickEvent + '>' + directory.FolderName + '</a>';
+            
+            if (directory.Directories !== undefined || directory.Directories.length != 0) {
+                directory.Directories.forEach(function (subDirectory) {
+                    jsClickEvent = ' onClick="getHeaders(\'' + subDirectory.FolderName + '\')" ';
+                    htmlContent += '<a class="nav-sub-dir" href="#"' + jsClickEvent + '>' + subDirectory.FolderName + '</a>';
+                });
+            }
+            
         });
         menuDiv.html(htmlContent);
         console.log('GetDirectoryStructure Success');

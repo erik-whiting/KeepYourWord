@@ -12,7 +12,7 @@ namespace WordStuff.Models
         public string FolderName { get; set; }
         public string ParentFolder { get; set; }
         public List<string> Files = new List<string>();
-        public List<DirectoryStructureDto> SubDirectoryDtos = new List<DirectoryStructureDto>();
+        public List<DirectoryStructureDto> Directories = new List<DirectoryStructureDto>();
 
         public DirectoryStructureDto(string path)
         {
@@ -20,9 +20,12 @@ namespace WordStuff.Models
             FolderName = path.Split('\\').Last();
             ParentFolder = Directory.GetParent(path).ToString().Split('\\').Last();
 
-            foreach (var directory in Directory.EnumerateDirectories(Path))
+            if (Directory.EnumerateDirectories(Path) != null)
             {
-                SubDirectoryDtos.Add(new DirectoryStructureDto(directory));
+                foreach (var directory in Directory.EnumerateDirectories(Path))
+                {
+                    Directories.Add(new DirectoryStructureDto(directory));
+                }
             }
 
             foreach (var file in Directory.EnumerateFiles(Path))

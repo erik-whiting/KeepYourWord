@@ -177,6 +177,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\DirectoryStructureController.cs" />
+    <Compile Include="Controllers\HeaderListController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Controllers\WordDocHeadersController.cs" />
@@ -202,6 +203,7 @@
     </Content>
     <Content Include="View\css\Style.css" />
     <Content Include="View\SamplePage.html" />
+    <Content Include="View\scripts\getArticleHeaders.js" />
     <Content Include="View\scripts\getCategories.js" />
     <Content Include="View\scripts\getDocHtml.js" />
     <Content Include="Web.config" />

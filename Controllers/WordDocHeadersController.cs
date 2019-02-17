@@ -11,11 +11,11 @@ namespace WordStuff.Controllers
 {
     public class WordDocHeadersController : ApiController
     {
-        public IHttpActionResult GetDocHeader(string filename)
+        public IHttpActionResult GetDocHeader(string filename, string testString = "")
         {
             string root = "C:\\Users\\eedee\\Documents\\mastersStuff\\Spring19\\SW Engr\\kywroot\\";
             string filenameLocation = root + filename + ".docx";
-            WordDocHeader WordDocHeader = new WordDocHeader(DocX.Load(filenameLocation));
+            WordDocHeader WordDocHeader = new WordDocHeader(DocX.Load(filenameLocation), testString);
             return Ok(WordDocHeader.headerHtml);
         }
     }

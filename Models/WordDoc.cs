@@ -12,6 +12,7 @@ namespace WordStuff.Models
         public string Author { get; set; }
         public string Created { get; set; }
         public string Title { get; set; }
+        public string FileName { get; set; }
         public List<ParagraphDTO> Paragraphs { get; set; }
         public string htmlString { get; set; }
 
@@ -20,6 +21,7 @@ namespace WordStuff.Models
             htmlString = "";
             TagController tagController = new TagController();
             var coreProperties = document.CoreProperties;
+            
             Author = coreProperties["dc:creator"];
             Created = coreProperties["dcterms:created"];
             Title = document.Paragraphs.FirstOrDefault().Text;

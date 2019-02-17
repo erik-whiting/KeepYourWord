@@ -12,12 +12,22 @@ namespace WordStuff.Models
         public string Author { get; set; }
         public string Created { get; set; }
         public string Title { get; set; }
+        public string Filename { get; set; }
         public string headerHtml { get; set; }
 
-        public WordDocHeader(DocX document)
+        public WordDocHeader(DocX document, string filename)
         {
-            headerHtml = "<div class='doc-header-info'>";
             var coreProperties = document.CoreProperties;
+            Filename = filename;
+            string jsEvent = "'loadDoc(";
+            jsEvent += '"' + filename + '"';
+            jsEvent += ")'";
+            jsEvent = jsEvent.Replace(@"\", "");
+            string clickEvent = "<a href='#' onClick=" + jsEvent + ">";
+            //<a href='#' onClick='loadDoc("fileName")'>
+
+            headerHtml = clickEvent.Replace("\\", "");
+            headerHtml += "<div class='doc-header-info'>";
 
             Author = coreProperties["dc:creator"];
             headerHtml += "<span class='header-author'>" + Author + "</span>";
@@ -28,7 +38,7 @@ namespace WordStuff.Models
             Title = document.Paragraphs.FirstOrDefault().Text;
             headerHtml += "<span class='header-title'>" + Title + "</span>";
 
-            headerHtml += "</div>";
+            headerHtml += "</div></a>";
 
         }
     }
