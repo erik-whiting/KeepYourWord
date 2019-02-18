@@ -11,8 +11,14 @@ $.ajax({
             
             if (directory.Directories !== undefined || directory.Directories.length != 0) {
                 directory.Directories.forEach(function (subDirectory) {
-                    jsClickEvent = ' onClick="getHeaders(\'' + subDirectory.FolderName + '\')" ';
-                    htmlContent += '<a class="nav-sub-dir" href="#"' + jsClickEvent + '>' + subDirectory.FolderName + '</a>';
+                    var folderNameArray = subDirectory.FolderName.split("\\");
+                    var displayName = folderNameArray[folderNameArray.length - 1];
+                    var functionName = "";
+                    folderNameArray.forEach(function (namePart) {
+                        functionName += namePart + "\\\\";
+                    });
+                    jsClickEvent = ' onClick="getHeaders(\'' + functionName + '\')" ';
+                    htmlContent += '<a class="nav-sub-dir" href="#"' + jsClickEvent + '>' + displayName + '</a>';
                 });
             }
             

@@ -17,13 +17,19 @@ namespace WordStuff.Models
 
         public WordDocHeader(DocX document, string filename)
         {
+
+            //Find out if filename exists in root
+            //If not, append directory to filename
+
+
+
             var coreProperties = document.CoreProperties;
             Filename = filename;
             string jsEvent = "'loadDoc(";
             jsEvent += '"' + filename + '"';
             jsEvent += ")'";
             jsEvent = jsEvent.Replace(@"\", "");
-            string clickEvent = "<a href='#' onClick=" + jsEvent + ">";
+            string clickEvent = "<a class='header-link' href='#' onClick=" + jsEvent + ">";
             //<a href='#' onClick='loadDoc("fileName")'>
 
             headerHtml = clickEvent.Replace("\\", "");

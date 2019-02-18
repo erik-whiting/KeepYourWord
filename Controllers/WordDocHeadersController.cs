@@ -15,6 +15,7 @@ namespace WordStuff.Controllers
         {
             string root = "C:\\Users\\eedee\\Documents\\mastersStuff\\Spring19\\SW Engr\\kywroot\\";
             string filenameLocation = root + filename + ".docx";
+            filenameLocation = filenameLocation.Replace("'", "");
             WordDocHeader WordDocHeader = new WordDocHeader(DocX.Load(filenameLocation), testString);
             return Ok(WordDocHeader.headerHtml);
         }
