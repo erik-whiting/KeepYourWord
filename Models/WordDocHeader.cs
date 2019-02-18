@@ -26,13 +26,13 @@ namespace WordStuff.Models
             var coreProperties = document.CoreProperties;
             Filename = filename;
             string jsEvent = "'loadDoc(";
+            filename = filename.Replace("\\", "\\\\");
             jsEvent += '"' + filename + '"';
             jsEvent += ")'";
-            jsEvent = jsEvent.Replace(@"\", "");
             string clickEvent = "<a class='header-link' href='#' onClick=" + jsEvent + ">";
             //<a href='#' onClick='loadDoc("fileName")'>
 
-            headerHtml = clickEvent.Replace("\\", "");
+            headerHtml = clickEvent; //.Replace("\\", "");
             headerHtml += "<div class='doc-header'>";
 
             Title = document.Paragraphs.FirstOrDefault().Text;
