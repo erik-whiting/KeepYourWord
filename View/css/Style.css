@@ -43,6 +43,23 @@
 .doc-li {
 }
 
+.doc-header-info {
+    align-content: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.header-title {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.header-author {
+
+}
+
+.header-created {
+
+}
+
 .sidenav {
     height: 100%;
     width: 200px;

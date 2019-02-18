@@ -27,16 +27,16 @@ namespace WordStuff.Models
             //<a href='#' onClick='loadDoc("fileName")'>
 
             headerHtml = clickEvent.Replace("\\", "");
-            headerHtml += "<div class='doc-header-info'>";
-
-            Author = coreProperties["dc:creator"];
-            headerHtml += "<span class='header-author'>" + Author + "</span>";
-
-            Created = coreProperties["dcterms:created"];
-            headerHtml += "<span class='header-created'>" + Created + "</span>";
+            headerHtml += "<div class='doc-header'>";
 
             Title = document.Paragraphs.FirstOrDefault().Text;
-            headerHtml += "<span class='header-title'>" + Title + "</span>";
+            headerHtml += "<h2 class='header-title'>" + Title + "</h2>";
+
+            Author = coreProperties["dc:creator"];
+            headerHtml += "<span class='doc-author'>" + Author + "</span>";
+
+            Created = coreProperties["dcterms:created"];
+            headerHtml += "<span class='doc-created'>" + Created + "</span>";
 
             headerHtml += "</div></a>";
 
