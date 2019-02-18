@@ -2,7 +2,7 @@
 var contentDiv = $('#content-div');
 console.log('Beginning GetWordDocHtml');
 $.ajax({
-    url: 'http://localhost:20000/api/worddocs/GetWordDocHtml/?filename=samplepost',
+    url: 'http://localhost:20000/api/worddocs/GetWordDocHtml/?filename=Home',
     success: function (data) {
         htmlContent = data;
         contentDiv.html(htmlContent);
@@ -17,6 +17,7 @@ $.ajax({
 var loadDoc = function (docName) {
     var htmlContent = '';
     var contentDiv = $('#content-div');
+    console.log('Beginning GetWordDocHtml');
     $.ajax({
         url: 'http://localhost:20000/api/worddocs/GetWordDocHtml/?filename=' + docName,
         success: function (data) {
