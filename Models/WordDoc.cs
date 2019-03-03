@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using Xceed.Words.NET;
 using WordStuff.Controllers;
+using System.Web.Http;
 
 namespace WordStuff.Models
 {
@@ -13,11 +14,13 @@ namespace WordStuff.Models
         public string Created { get; set; }
         public string Title { get; set; }
         public string FileName { get; set; }
+        public string ContainingFolder { get; set; }
         public List<ParagraphDTO> Paragraphs { get; set; }
         public string htmlString { get; set; }
 
-        public WordDoc(DocX document)
+        public WordDoc(DocX document, string fileName, bool ToBeReviewed = false)
         {
+            FileName = fileName;
             htmlString = "";
             TagController tagController = new TagController();
             var coreProperties = document.CoreProperties;
@@ -41,6 +44,28 @@ namespace WordStuff.Models
             }
 
             htmlString += tagController.ContentToHtml(Paragraphs);
+
+            if (ToBeReviewed)
+            {
+                htmlString += "<br /><br />";
+                htmlString += "<button type='button' onClick='approve()'>Approve Article</button>";
+                var dirControl = new DirectoryStructureController();
+                var ds = new DirectoryStructure();
+                htmlString += "<select id='destination'>"; 
+                foreach (var directory in ds.directoryStructureDtos)
+                {
+                    if (directory.FolderName != "To Be Reviewed")
+                    {
+                        htmlString += "<option value='" + directory.FolderName + "'>" + directory.FolderName + "</option>";
+                    }
+                }
+                htmlString += "</select>";
+                htmlString += "<br />";
+                htmlString += "<button type='button' onClick='reject()'>Reject Article</button>";
+                htmlString += "<br />";
+                htmlString += "<p id='filename'>" + FileName.Split('\\')[2] + "</p>";
+                
+            }
 
         }
 

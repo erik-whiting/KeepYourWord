@@ -22,7 +22,6 @@ namespace WordStuff.Models
             //If not, append directory to filename
 
 
-
             var coreProperties = document.CoreProperties;
             Filename = filename;
             string jsEvent = "'getContent(";

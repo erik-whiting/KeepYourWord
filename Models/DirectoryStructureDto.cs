@@ -11,6 +11,7 @@ namespace WordStuff.Models
         public string Path { get; set; }
         public string FolderName { get; set; }
         public string ParentFolder { get; set; }
+        public bool ReviewFolder { get; set; }
         public bool IsRoot { get; set; }
         public List<string> Files = new List<string>();
         public List<DirectoryStructureDto> Directories = new List<DirectoryStructureDto>();
@@ -18,11 +19,13 @@ namespace WordStuff.Models
         public DirectoryStructureDto(string path)
         {
             const string KywRoot = "kywroot";
+            const string ReviewDirectory = "To Be Reviewed";
             Path = path.Replace("'", "");
             var parsedPaths = path.Split('\\');
             FolderName = parsedPaths.Last();
             parsedPaths = parsedPaths.Take(parsedPaths.Count() - 1).ToArray();
             IsRoot = FolderName == KywRoot;
+            ReviewFolder = FolderName == ReviewDirectory;
 
             if (!IsRoot)
             {

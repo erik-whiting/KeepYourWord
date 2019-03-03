@@ -25,7 +25,6 @@
 
             });
             htmlContent = '<a href="SamplePage.html">Home</a>' + htmlContent;
-            htmlContent += '<a href="ApprovalRequest.html">Submit An Article</a>';
             menuDiv.html(htmlContent);
             console.log('GetDirectoryStructure Success');
         },

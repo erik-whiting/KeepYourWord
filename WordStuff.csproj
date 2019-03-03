@@ -176,6 +176,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ApproveController.cs" />
     <Compile Include="Controllers\DirectoryStructureController.cs" />
     <Compile Include="Controllers\HandleFileUploadController.cs" />
     <Compile Include="Controllers\HeaderListController.cs" />
@@ -202,9 +203,9 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="View\ApprovalRequest.html" />
     <Content Include="View\css\Style.css" />
     <Content Include="View\SamplePage.html" />
+    <Content Include="View\scripts\approve-reject.js" />
     <Content Include="View\scripts\fileUpload.js" />
     <Content Include="View\scripts\getArticleHeaders.js" />
     <Content Include="View\scripts\getCategories.js" />
