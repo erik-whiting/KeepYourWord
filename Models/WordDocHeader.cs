@@ -25,7 +25,7 @@ namespace WordStuff.Models
 
             var coreProperties = document.CoreProperties;
             Filename = filename;
-            string jsEvent = "'loadDoc(";
+            string jsEvent = "'getContent(";
             filename = filename.Replace("\\", "\\\\");
             jsEvent += '"' + filename + '"';
             jsEvent += ")'";

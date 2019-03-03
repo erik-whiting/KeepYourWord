@@ -1,20 +1,4 @@
-﻿var htmlContent = '';
-var contentDiv = $('#content-div');
-console.log('Beginning GetWordDocHtml');
-$.ajax({
-    url: 'http://localhost:20000/api/worddocs/GetWordDocHtml/?filename=Home',
-    success: function (data) {
-        htmlContent = data;
-        contentDiv.html(htmlContent);
-        console.log('GetWordDocHtml Success');
-    },
-    error: function (error) {
-        htmlContent = '<p>' + error + '</p>';
-        console.log('GetWordDocHtml Fail');
-    }
-});
-
-var loadDoc = function (docName) {
+﻿var getContent = function (docName = "Home") {
     var htmlContent = '';
     var contentDiv = $('#content-div');
     console.log('Beginning GetWordDocHtml');
@@ -27,6 +11,7 @@ var loadDoc = function (docName) {
         },
         error: function (error) {
             htmlContent = '<p>' + error + '</p>';
+            console.log('GetWordDocHtml Fail');
         }
     });
 }

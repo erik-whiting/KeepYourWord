@@ -18,6 +18,6 @@
 }
 
 var addLinkToArticle = function (docName) {
-    var openTag = '<a href="#" onClick="loadDoc(\'' + docName + '\')">';
+    var openTag = '<a href="#" onClick="getContent(\'' + docName + '\')">';
     var closeTag = '</a>';
 }

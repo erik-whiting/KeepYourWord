@@ -3,20 +3,23 @@
 <head>
     <link href="css/Style.css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="scripts/getArticleHeaders.js"></script>
     <script src="scripts/getCategories.js"></script>
-    <script src="scripts/getDocHtml.js"></script>
+    <script src="scripts/fileUpload.js"></script>
     <meta charset="utf-8" />
-    <title>Keep Your Word</title>
+    <title>Submit an Article</title>
 </head>
 <body>
     <div id="menu-div" class="sidenav">
     </div>
     <div id="content-div">
+        <h1 class="doc-title">Submit Your Article</h1>
+        <form method="post" enctype="multipart/form-data" action="http://localhost:20000/api/handlefileupload/Post">
+            <input type="file" name="files[]" multiple>
+            <input type="submit" value="Upload" name="submit">
+        </form>
     </div>
     <script>
         getMenu();
-        getContent("Home");
     </script>
 </body>
 </html>
