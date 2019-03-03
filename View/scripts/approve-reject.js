@@ -14,11 +14,20 @@ var approve = function () {
     $.post(fullUrl, function (data, status) {
         console.log(data + " " + status);
     });
-    localtion.reload(true);
     console.log("Approval Process Complete");
+    location.reload(true);
 }
 
 var reject = function () {
     console.log("Starting Rejection Process");
+    var fileName = document.getElementById("filename").innerText;
+    var approveParam = "approve=false";
+    var fileFromParam = "fileFrom=" + fileName;
+    var params = approveParam + "&" + fileFromParam;
+    var fullUrl = initialUrl + params;
+    $.post(fullUrl, function (data, status) {
+        console.log(data + " " + status);
+    });
     console.log("Rejection Process Complete");
+    location.reload(true);
 }
