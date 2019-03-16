@@ -21,7 +21,7 @@ namespace WordStuff.Controllers
             foreach (var file in directory.Files)
             {
                 string testingWorkaround = directoryName + "\\" + file;
-                var headerHtml = headerController.GetDocHeader(testingWorkaround, file);
+                var headerHtml = headerController.GetDocHeaderHtml(testingWorkaround, file);
                 var x = headerHtml as OkNegotiatedContentResult<string>;
                 returnHtml += x.Content;
             }

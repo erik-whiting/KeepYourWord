@@ -25,7 +25,6 @@
 
             });
             htmlContent = '<a href="SamplePage.html">Home</a>' + htmlContent;
-            htmlContent += '<a href="">Customize</a>';
             menuDiv.html(htmlContent);
             console.log('GetDirectoryStructure Success');
         },
