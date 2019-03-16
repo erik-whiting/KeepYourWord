@@ -11,7 +11,7 @@ namespace WordStuff.Controllers
 {
     public class WordDocHeadersController : ApiController
     {
-        public IHttpActionResult GetDocHeader(string filename, string testString = "")
+        public IHttpActionResult GetDocHeaderHtml(string filename, string testString = "")
         {
             const string KywRoot = "kywroot";
             string root = "C:\\Users\\eedee\\Documents\\mastersStuff\\Spring19\\SW Engr\\kywroot\\";
