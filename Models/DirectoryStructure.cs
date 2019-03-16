@@ -18,7 +18,11 @@ namespace WordStuff.Models
             DirectoryPaths = Directory.EnumerateDirectories(Config.BlogRoot.ToString());
             foreach (var directory in DirectoryPaths)
             {
-                directoryStructureDtos.Add(new DirectoryStructureDto(directory));
+                DirectoryInfo directoryInfo = new DirectoryInfo(directory);
+                if (!directoryInfo.Attributes.HasFlag(FileAttributes.Hidden))
+                {
+                    directoryStructureDtos.Add(new DirectoryStructureDto(directory));
+                }
             }
         }
     }

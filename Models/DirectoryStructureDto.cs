@@ -43,7 +43,13 @@ namespace WordStuff.Models
             {
                 foreach (var directory in Directory.EnumerateDirectories(Path))
                 {
-                    Directories.Add(new DirectoryStructureDto(directory));
+                    DirectoryInfo directoryInfo = new DirectoryInfo(directory);
+
+                    if (!directoryInfo.Attributes.HasFlag(FileAttributes.Hidden))
+                    {
+                        Directories.Add(new DirectoryStructureDto(directory));
+                    }
+                        
                 }
             }
 

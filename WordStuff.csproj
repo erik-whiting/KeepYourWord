@@ -191,6 +191,7 @@
     <Compile Include="Models\DirectoryStructure.cs" />
     <Compile Include="Models\DirectoryStructureDto.cs" />
     <Compile Include="Models\ParagraphDTO.cs" />
+    <Compile Include="Models\Style.cs" />
     <Compile Include="Models\TagController.cs" />
     <Compile Include="Models\WordDoc.cs" />
     <Compile Include="Models\WordDocHeader.cs" />
@@ -203,6 +204,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="View\css\Default.css" />
     <Content Include="View\css\Style.css" />
     <Content Include="View\SamplePage.html" />
     <Content Include="View\scripts\approve-reject.js" />

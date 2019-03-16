@@ -23,8 +23,16 @@ namespace WordStuff.Controllers
             }
             string filenameLocation = root + filename + ".docx";
             filenameLocation = filenameLocation.Replace("'", "");
-            WordDocHeader WordDocHeader = new WordDocHeader(DocX.Load(filenameLocation), filename);
-            return Ok(WordDocHeader.headerHtml);
+            
+            try
+            {
+                WordDocHeader WordDocHeader = new WordDocHeader(DocX.Load(filenameLocation), filename);
+                return Ok(WordDocHeader.headerHtml);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Ok("");
+            }
         }
     }
 }
