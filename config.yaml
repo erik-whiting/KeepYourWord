@@ -1,3 +1,6 @@
-﻿website:
-	root: C:\\Users\\eedee\\Documents\\mastersStuff\\Spring19\\SW Engr\\kywroot
+﻿root: C:\Users\eedee\Documents\mastersStuff\Spring19\SW Engr\kywroot
 
+groups:
+ readers: kyw-readers
+ admin: kyw-admin
+ contributors: kyw-contributors

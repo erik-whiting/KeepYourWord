@@ -111,3 +111,5 @@ C:\Users\eedee\source\repos\WordStuff\WordStuff\bin\Microsoft.Extensions.FilePro
 C:\Users\eedee\source\repos\WordStuff\WordStuff\bin\Microsoft.Extensions.FileSystemGlobbing.xml
 C:\Users\eedee\source\repos\WordStuff\WordStuff\bin\Microsoft.Extensions.Primitives.xml
 C:\Users\eedee\source\repos\WordStuff\WordStuff\obj\Debug\WordStuff.csprojAssemblyReference.cache
+C:\Users\eedee\source\repos\WordStuff\WordStuff\bin\YamlDotNet.dll
+C:\Users\eedee\source\repos\WordStuff\WordStuff\bin\YamlDotNet.xml
