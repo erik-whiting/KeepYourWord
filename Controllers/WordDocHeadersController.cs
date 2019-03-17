@@ -11,12 +11,12 @@ namespace WordStuff.Controllers
 {
     public class WordDocHeadersController : ApiController
     {
-        public IHttpActionResult GetDocHeaderHtml(string filename, string testString = "")
+        public IHttpActionResult GetDocHeaderHtml(string filename)
         {
-            const string KywRoot = "kywroot";
-            string root = "C:\\Users\\eedee\\Documents\\mastersStuff\\Spring19\\SW Engr\\kywroot\\";
+            Configs config = new Configs();
+            string root = config.BlogRoot + "\\";
             var rootArray = root.Split('\\');
-            while (rootArray.Last() != KywRoot)
+            while (rootArray.Last() != config.RootName)
             {
                 filename = rootArray.Last() + "\\" + filename;
                 rootArray = rootArray.Take(rootArray.Count() - 1).ToArray();

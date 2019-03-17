@@ -1,4 +1,6 @@
 ﻿root: C:\Users\eedee\Documents\mastersStuff\Spring19\SW Engr\kywroot
+reviewFolder: "To Be Reviewed"
+rootName: kywroot
 
 groups:
  readers: kyw-readers

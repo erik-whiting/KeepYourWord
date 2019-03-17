@@ -18,18 +18,17 @@ namespace WordStuff.Models
 
         public DirectoryStructureDto(string path)
         {
-            const string KywRoot = "kywroot";
-            const string ReviewDirectory = "To Be Reviewed";
+            Configs config = new Configs();
             Path = path.Replace("'", "");
             var parsedPaths = path.Split('\\');
             FolderName = parsedPaths.Last();
             parsedPaths = parsedPaths.Take(parsedPaths.Count() - 1).ToArray();
-            IsRoot = FolderName == KywRoot;
-            ReviewFolder = FolderName == ReviewDirectory;
+            IsRoot = FolderName == config.RootName;
+            ReviewFolder = FolderName == config.ReviewFolder;
 
             if (!IsRoot)
             {
-                while (parsedPaths.Last() != KywRoot)
+                while (parsedPaths.Last() != config.RootName)
                 {
                     FolderName = parsedPaths.Last() + '\\' + FolderName;
                     parsedPaths = parsedPaths.Take(parsedPaths.Count() - 1).ToArray();

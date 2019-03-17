@@ -13,15 +13,16 @@ namespace WordStuff.Controllers
     {
         public IHttpActionResult GetHeaderList(string directoryName)
         {
-            string root = "C:\\Users\\eedee\\Documents\\mastersStuff\\Spring19\\SW Engr\\kywroot\\";
+            Configs config = new Configs();
+            string root = config.BlogRoot + "\\";
             string directoryPath = root + directoryName + "\\";
             var returnHtml = "";
             var directory = new DirectoryStructureDto(directoryPath);
             var headerController = new WordDocHeadersController();
             foreach (var file in directory.Files)
             {
-                string testingWorkaround = directoryName + "\\" + file;
-                var headerHtml = headerController.GetDocHeaderHtml(testingWorkaround, file);
+                string relativeFileLocation = directoryName + "\\" + file;
+                var headerHtml = headerController.GetDocHeaderHtml(relativeFileLocation);
                 var x = headerHtml as OkNegotiatedContentResult<string>;
                 returnHtml += x.Content;
             }

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using WordStuff.Models;
 using Xceed.Words.NET;
 
 namespace WordStuff.Controllers
@@ -13,8 +14,9 @@ namespace WordStuff.Controllers
     {
         public IHttpActionResult ApproveOrReject(bool approve, string fileFrom, string fileTo = "")
         {
-            const string root = "C:\\Users\\eedee\\Documents\\mastersStuff\\Spring19\\SW Engr\\kywroot\\";
-            fileFrom = root + "\\To Be Reviewed\\" + fileFrom;
+            Configs config = new Configs();
+            string root = config.BlogRoot + "\\";
+            fileFrom = root + "\\" + config.ReviewFolder + "\\" + fileFrom;
             string response = "";
             fileFrom += ".docx";
             var document = DocX.Load(fileFrom);

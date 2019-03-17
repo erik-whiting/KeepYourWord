@@ -11,6 +11,8 @@ namespace WordStuff.Models
     {
         private string ConfigFileLocation = "C:\\Users\\eedee\\source\\repos\\WordStuff\\WordStuff\\config.yaml";
         public string BlogRoot { get; set; }
+        public string ReviewFolder { get; set; }
+        public string RootName { get; set; }
         public Dictionary<string, string> Groups {get; set;}
 
         public Configs()
@@ -31,6 +33,8 @@ namespace WordStuff.Models
             Groups = groupDict;
 
             BlogRoot = (string)mapping["root"];
+            ReviewFolder = (string)mapping["reviewFolder"];
+            RootName = (string)mapping["rootName"];
         }
     }
 }

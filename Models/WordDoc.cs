@@ -5,6 +5,7 @@ using System.Web;
 using Xceed.Words.NET;
 using WordStuff.Controllers;
 using System.Web.Http;
+using WordStuff.Models;
 
 namespace WordStuff.Models
 {
@@ -20,6 +21,7 @@ namespace WordStuff.Models
 
         public WordDoc(DocX document, string fileName, bool ToBeReviewed = false)
         {
+            Configs config = new Configs();
             FileName = fileName;
             htmlString = "";
             TagController tagController = new TagController();
@@ -54,7 +56,7 @@ namespace WordStuff.Models
                 htmlString += "<select id='destination'>"; 
                 foreach (var directory in ds.directoryStructureDtos)
                 {
-                    if (directory.FolderName != "To Be Reviewed")
+                    if (directory.FolderName != config.ReviewFolder)
                     {
                         htmlString += "<option value='" + directory.FolderName + "'>" + directory.FolderName + "</option>";
                     }
