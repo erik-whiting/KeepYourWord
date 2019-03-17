@@ -1,6 +1,7 @@
 # KeepYourWord
-CMS application with a Microsoft Word backend
-For a semi up-to-date domonstration, please visit: https://youtu.be/QAs7UNh8Asg
+CMS application with a Microsoft Word backend.
+
+For a semi up-to-date demonstration, please visit: https://youtu.be/QAs7UNh8Asg
 
 This project is being completed as part of SWEN 5236 at University of Houston Clear Lake during Spring 2019 semester.
 The project requires the completion of up to five features.  The features I've documented are as follows:
